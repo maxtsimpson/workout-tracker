@@ -15,9 +15,3 @@ fs
     });
 
 module.exports = db;
-
-// const modelsPath = path.resolve(__dirname, 'models')
-// fs.readdirSync(modelsPath).forEach(file => {
-//     require(modelsPath + '/' + file);
-// })
-
