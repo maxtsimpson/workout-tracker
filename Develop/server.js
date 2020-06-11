@@ -20,6 +20,9 @@ app.use(express.json());
 //add the api routes
 require("./routes/api_routes")(app);
 
+//add the html routes
+require("./routes/html_routes")(app);
+
 // Static directory to be served
 app.use(express.static("public"));
 
