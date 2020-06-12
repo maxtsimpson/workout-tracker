@@ -25,17 +25,18 @@ module.exports = function (app) {
 
     app.put("/api/workouts/:id", (req, res) => {
         console.log(`getting workout with id: ${req.params.id}`)
-        db.Workout.findOneAndUpdate(req.params.id, { $set: req.body })
-            .then((results) => {
-                console.log("successfully updated")
-                console.log(results)
-                res.json(results)
+        console.log(req.body)
+        db.Workout.findOneAndUpdate(req.params.id, { $push: { exercises: req.body} }, {new: true})
+            .then((newWorkout) => {
+                console.log("updated")
+                console.log(newWorkout)
+                res.json(newWorkout)
             })
             .catch(error => res.json(error))
     })
 
     app.post("/api/workouts", (req, res) => {
-        const workout = new db.Workout(req.body)
+        const workout = new db.Workout()
         workout.save()
             .then((results) => {
                 console.log(results)
