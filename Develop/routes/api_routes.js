@@ -14,8 +14,7 @@ module.exports = function (app) {
     app.get("/api/workouts/range", (req, res) => {
         const days = req.body.numberOfDays || 7
         const startDate = new Date().setDate(new Date().getDate() - days)
-        console.log({ startDate })
-        db.Workout.find({ day: { $gte: startDate } })
+        db.Workout.find({ day: { $gte: startDate } }).sort({ day: -1 })
             .then((workouts) => {
                 console.log({ workouts })
                 res.json(workouts)
