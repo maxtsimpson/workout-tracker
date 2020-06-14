@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 module.exports = function (app) {
 
     app.get("/api/workouts", (req, res) => {
-        db.Workout.find({})
+        db.Workout.find({}).sort({ day: -1 })
             .then((workouts) => {
                 res.json(workouts)
             })
