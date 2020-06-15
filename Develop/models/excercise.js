@@ -10,6 +10,7 @@ const ExcerciseSchema = new Schema({
     type: String,
     name: String,
     duration: Number,
+    distance: Number,
     weight: Number,
     reps: Number,
     sets: Number
