@@ -6,4 +6,8 @@ module.exports = function (app) {
         res.redirect('/exercise.html')
     })
 
+    app.get("/stats", (req, res) => {
+        res.redirect('/stats.html')
+    })
+
 }
