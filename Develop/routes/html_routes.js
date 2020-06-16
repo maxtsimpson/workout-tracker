@@ -10,4 +10,8 @@ module.exports = function (app) {
         res.redirect('/stats.html')
     })
 
+    app.get("/", (req, res) => {
+        res.redirect('/index.html')
+    })
+
 }
